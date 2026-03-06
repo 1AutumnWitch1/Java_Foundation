@@ -36,14 +36,27 @@ class Animanation{
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-
+        List<Animanation> list = new ArrayList<Animanation>();
         System.out.println("你喜欢的动漫有什么？你分别为他们打多少分？");
-        while (input.hasNext()) {
-            String name = input.next(); // 读取下一个字符串
+        while (true) {
+            String name = input.next();
+            int point;
+            if (input.hasNextInt()&&name != "null") {
+                point = input.nextInt();
+            }
+            else
+            {
+                break;
+            }
+          list.add( new Animanation(name,point));
+                System.out.println("已录入");
+
+
+
 
         }
-
-
+   list.sort((s1,s2) -> s1.lovepoint - s2.lovepoint);
+        System.out.println(list);
 
 
     }
